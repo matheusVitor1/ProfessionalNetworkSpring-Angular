@@ -8,4 +8,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class WorkHistoryDto {
+    private Long id;
+    private String position;
+    private String company;
+    private String startDate;
+    private String endDate;
+    private String description;
+    private Long userId;
+
 }

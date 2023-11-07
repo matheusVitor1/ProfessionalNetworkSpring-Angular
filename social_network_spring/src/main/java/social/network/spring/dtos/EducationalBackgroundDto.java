@@ -8,4 +8,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EducationalBackgroundDto {
+
+    private Long id;
+    private String degree;
+    private String institution;
+    private String major;
+    private String startDate;
+    private String endDate;
+    private String description;
+    private Long userId;
+
+
 }

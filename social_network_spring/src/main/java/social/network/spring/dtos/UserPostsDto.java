@@ -8,4 +8,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserPostsDto {
+    private Long id;
+    private String content;
+    private String date;
+    private Long userId;
 }

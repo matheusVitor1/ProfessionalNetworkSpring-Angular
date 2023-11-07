@@ -8,4 +8,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AddressDto {
+    private Long id;
+    private String cep;
+    private String logradouro;
+    private String bairro;
+    private String localidade;
+    private String uf;
+    private String number;
+
+    private Long userId;
 }
