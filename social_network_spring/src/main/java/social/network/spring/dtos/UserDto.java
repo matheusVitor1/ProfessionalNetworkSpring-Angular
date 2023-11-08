@@ -24,5 +24,7 @@ public class UserDto {
 
     private boolean active;
 
+    private String email;
+
     private String password;
 }

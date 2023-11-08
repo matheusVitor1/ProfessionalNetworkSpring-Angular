@@ -7,10 +7,9 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "USERS")
 @Getter
 @Setter
-@AllArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,4 +38,18 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    public User() {
+        // Este é o construtor padrão sem argumentos
+    }
+
+    public User(String photoUrl, String name, int age, String birthday, String identity,  String email, String password, boolean active) {
+        this.photoUrl = photoUrl;
+        this.name = name;
+        this.age = age;
+        this.birthday = birthday;
+        this.identity = identity;
+        this.active = active;
+        this.email = email;
+        this.password = password;
+    }
 }
