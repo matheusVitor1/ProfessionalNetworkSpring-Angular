@@ -127,6 +127,19 @@ h6 {
   text-decoration: none;
 }
 
+#header button[type=submit] {
+  background: #149ddd;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+#header button[type=submit]:hover {
+  background: #37b3ed;
+}
+
 #main {
   margin-left: 300px;
 }
@@ -845,6 +858,13 @@ section {
 --------------------------------------------------------------*/
 .contact {
   padding-bottom: 130px;
+}
+
+.contact .profile img {
+  margin: 15px auto;
+  display: block;
+  width: 120px;
+  border: 8px solid #2c2f3f;
 }
 
 .contact .info {
