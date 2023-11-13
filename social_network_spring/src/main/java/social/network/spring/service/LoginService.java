@@ -21,15 +21,15 @@ public class LoginService {
         this.userService = userService;
     }
 
-    public User authenticateUser(UserDto userDto) {
+    public User authenticateUser(String email, String password) {
         List <User> users = this.userService.getALL();
         User matchedUser = users.stream()
-                .filter(user -> user.getEmail().equals(userDto.getEmail()))
+                .filter(user -> user.getEmail().equals(email))
                 .findFirst()
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
 
 
-        if (passwordEncoder.matches(userDto.getPassword(), matchedUser.getPassword())) {
+        if (passwordEncoder.matches(password, matchedUser.getPassword())) {
             return matchedUser;
         } else {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Senha incorreta");

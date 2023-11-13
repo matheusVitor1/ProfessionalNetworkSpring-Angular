@@ -7,7 +7,7 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class WorkHistoryDto {
+public class EmploymentRecordDto {
     private Long id;
     private String position;
     private String company;

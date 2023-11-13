@@ -9,8 +9,6 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,8 +19,20 @@ public class Address {
     private String bairro;
     private String localidade;
     private String uf;
-    private String number;
 
-    @ManyToOne
+    @OneToOne
     private User user;
+
+    public Address() {
+
+    }
+
+    public Address(String cep, String logradouro, String bairro, String localidade, String uf, User user) {
+        this.cep = cep;
+        this.logradouro = logradouro;
+        this.bairro = bairro;
+        this.localidade = localidade;
+        this.uf = uf;
+        this.user = user;
+    }
 }

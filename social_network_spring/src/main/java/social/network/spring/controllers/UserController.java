@@ -3,11 +3,10 @@ package social.network.spring.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import social.network.spring.dtos.UserAuthenticatedDto;
 import social.network.spring.dtos.UserDto;
+import social.network.spring.entities.User;
 import social.network.spring.service.UserService;
 
 import java.util.HashMap;
@@ -31,4 +30,19 @@ public class UserController {
             return new ResponseEntity<>(response,HttpStatus.CONFLICT);
         }
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<UserAuthenticatedDto> getUserInformation(@PathVariable("id") Long id) {
+        User user = userService.findById(id);
+
+        if (user != null) {
+            UserAuthenticatedDto userDto = userService.createAuthenticatedUserDto(user);
+            return new ResponseEntity<>(userDto, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+
+
 }

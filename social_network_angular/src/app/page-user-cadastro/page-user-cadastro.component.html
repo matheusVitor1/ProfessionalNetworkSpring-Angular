@@ -1,1 +1,76 @@
-<p>page-user-cadastro works!</p>
+<section id="cadastroCliente" class="cadastroCliente">
+  <div class="container">
+
+    <div class="row aos-init aos-animate align-items-center justify-content-center" data-aos="fade-in">
+
+      <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+        <form class="php-email-form" data-aos="fade-up" data-aos-delay="100" style="border-radius: 10px; ">
+          <div class="profile">
+            <img src="../../assets/img/logo.jfif" alt="" class="img-fluid rounded-circle">
+            <h1 class="text-center">Cadastro</h1>
+          </div>
+          <div class="col mb-3 mt-4">
+            <label for="photoUrl">Foto:</label>
+            <input type="text" class="form-control" name="photoUrl" [formControl]="photoUrlControl" placeholder="URL da sua foto" data-rule="minlen:4"
+              data-msg="Please enter at least 4 chars">
+            <div class="validate"></div>
+          </div>
+          <div class="col mb-3 ">
+            <label for="name">Nome Completo:</label>
+            <input type="text" class="form-control" name="name" [formControl]="userNameControl" placeholder="Nome " data-rule="minlen:4"
+              data-msg="Please enter at least 4 chars">
+            <div class="validate"></div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 mb-3 ">
+              <label for="dtNascimento">Data de Nascimento:</label>
+              <input type="text" class="form-control" name="dtNascimento" [formControl]="birthdayControl" placeholder="dd/mm/aaaa" data-rule="minlen:4"
+                data-msg="Please enter at least 4 chars"  mask=" 00/00/0000" >
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-2 mb-3">
+              <label for="tipoDoc">Selecione:</label>
+              <select name="tipoDocumento" id="tipoDocumento" class="form-control" [(ngModel)]="tipoDocumento"
+                (change)="updatePattern()">
+                <option value="cpf">CPF</option>
+                <option value="cnpj">CNPJ</option>
+              </select>
+            </div>
+
+            <div class="col mb-3">
+              <label for="doc">Documento:</label>
+              <input type="text" class="form-control" id="documentoCliente"
+                [placeholder]="tipoDocumento === 'cpf' ? '000.000.000-00' : '00.000.000/0000-00'"
+                [mask]="tipoDocumento === 'cpf' ? '000.000.000-00' : '00.000.000/0000-00'" data-rule="minlen:14"
+                data-msg="Please enter a valid document"
+                [formControl]="identityControl">
+              <div class="validate"></div>
+            </div>
+          </div>
+
+
+          <div class="col mb-3 ">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control"  placeholder="Email" data-rule="minlen:4"
+              data-msg="Please enter at least 4 chars" [formControl]="emailControl">
+            <div class="validate"></div>
+          </div>
+          <div class="col mb-3">
+            <label for="senha">Senha:</label>
+            <input type="password" class="form-control" id="password" [formControl]="passwordControl" placeholder="Senha" data-rule="minlen:6"
+              data-msg="Please enter a password with at least 6 characters">
+            <div class="validate"></div>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="mt-3" style="width: 150px;" (click)="registerUser()">Cadastrar</button>
+          </div>
+
+        </form><!-- End Form -->
+      </div>
+
+    </div>
+
+  </div>
+</section>

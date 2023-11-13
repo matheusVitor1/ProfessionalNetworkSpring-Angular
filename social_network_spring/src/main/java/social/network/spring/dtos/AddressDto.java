@@ -14,7 +14,6 @@ public class AddressDto {
     private String bairro;
     private String localidade;
     private String uf;
-    private String number;
 
     private Long userId;
 }

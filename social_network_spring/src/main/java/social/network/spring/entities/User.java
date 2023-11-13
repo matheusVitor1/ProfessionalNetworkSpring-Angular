@@ -1,10 +1,7 @@
 package social.network.spring.entities;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 
 @Entity
 @Table(name = "USERS")
@@ -15,15 +12,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String photoUrl; 
+    private String photoUrl;
 
-    @Column (nullable = false)
+    private String userWallpaper;
+
+    private String userSelfDescription;
+
+    @Column(nullable = false)
     private String name;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private int age;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private String birthday;
 
     @Column(unique = true, nullable = false)
@@ -38,11 +39,17 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @OneToOne(mappedBy = "user")
+    private UserHeroContent userHeroContent;
+
+    @OneToOne(mappedBy = "user")
+    private Address userAddress;
+
     public User() {
-        // Este é o construtor padrão sem argumentos
+
     }
 
-    public User(String photoUrl, String name, int age, String birthday, String identity,  String email, String password, boolean active) {
+    public User(String photoUrl, String name, int age, String birthday, String identity, String email, String password, boolean active) {
         this.photoUrl = photoUrl;
         this.name = name;
         this.age = age;

@@ -23,6 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  function toggleAccordion() {
+    var collapseOne = new bootstrap.Collapse(document.getElementById('collapseOne'));
+    collapseOne.toggle();
+  }
+
   /**
    * Easy event listener function
    */
@@ -96,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
    * Mobile nav toggle
    */
 
-    console.log('Botãooo.');
 
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
     const body = document.querySelector('body');
@@ -140,20 +144,27 @@ document.addEventListener('DOMContentLoaded', function() {
   /**
    * Hero type effect
    */
-    console.log('Código JavaScript está sendo executado.');
-    const typed = document.querySelector('.typed');
-    console.log(typed);
-    if (typed) {
-      let typed_strings = typed.getAttribute('data-typed-items')
-      typed_strings = typed_strings.split(',')
-      new Typed('.typed', {
-        strings: typed_strings,
-        loop: true,
-        typeSpeed: 100,
-        backSpeed: 50,
-        backDelay: 2000
-      });
-    }
+
+  const typedSpan = document.querySelector('.typed');
+
+  if (typedSpan) {
+    let typed_strings = typedSpan.textContent; // Obtenha o conteúdo do span
+    typed_strings = typed_strings.split(',').map(item => item.trim());
+
+    // Adicione a primeira mensagem ao final do array
+    typed_strings.push(typed_strings[0]);
+
+    new Typed('.typed', {
+      strings: typed_strings,
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 2000
+    });
+  }
+
+
+
 
       /**
    * Skills animation

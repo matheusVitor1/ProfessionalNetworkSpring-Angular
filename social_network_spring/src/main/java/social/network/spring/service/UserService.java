@@ -3,6 +3,7 @@ package social.network.spring.service;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import social.network.spring.dtos.UserAuthenticatedDto;
 import social.network.spring.dtos.UserDto;
 import social.network.spring.entities.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -25,26 +26,9 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public List<User> getALL(){
-        return userRepository.findAll();
-    }
+    public UserAuthenticatedDto createAuthenticatedUserDto(User user) {
 
-    private User findById(Long id){
-        return this.userRepository.findById(id)
-                .orElseThrow(
-                        () -> new ResponseStatusException(
-                                HttpStatus.NOT_FOUND, "Usuário não encontrado"
-                        )
-                );
-    }
-
-    private boolean findByIdentity(List<User> users, String identidade) {
-        return users.stream().anyMatch(user -> user.getIdentity().equals(identidade));
-    }
-
-
-    public UserDto createNewUser(User user){
-        return UserDto.builder()
+        return UserAuthenticatedDto.builder()
                 .id(user.getId())
                 .photoUrl(user.getPhotoUrl())
                 .name(user.getName())
@@ -52,9 +36,27 @@ public class UserService {
                 .birthday(user.getBirthday())
                 .identity(user.getIdentity())
                 .email(user.getEmail())
-                .password(user.getPassword())
-                .active(user.isActive())
                 .build();
+    }
+
+    public List<User> getALL(){
+        return userRepository.findAll();
+    }
+
+    public User findById(Long id){
+        return this.userRepository.findById(id)
+                .orElseThrow(
+                        () -> new ResponseStatusException(
+                                HttpStatus.NOT_FOUND, "Usuário não encontrado"
+                        )
+                );
+    }
+    private boolean findByIdentity(List<User> users, String identidade) {
+        return users.stream().anyMatch(user -> user.getIdentity().equals(identidade));
+    }
+
+    private boolean findByEmail(List<User> users, String email) {
+        return users.stream().anyMatch(user -> user.getEmail().equals(email));
     }
 
     public boolean saveUser(UserDto userDto) {
@@ -63,7 +65,7 @@ public class UserService {
 
         int age = calculateAge(userDto.getBirthday());
 
-        if (!findByIdentity(users, userDto.getIdentity())) {
+        if (!findByIdentity(users, userDto.getIdentity()) && !findByEmail(users, userDto.getEmail())) {
             User user = new User(
                     userDto.getPhotoUrl(),
                     userDto.getName(),
@@ -74,8 +76,7 @@ public class UserService {
                     hashedPassword,
                     userDto.isActive()
             );
-            User savedUser = userRepository.save(user);
-            createNewUser(savedUser);
+            userRepository.save(user);
             return true;
         } else {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Usuário já cadastrado");
@@ -83,7 +84,7 @@ public class UserService {
     }
 
 
-    private boolean updateUser (UserDto userDto){
+    public boolean updateUser (UserDto userDto){
         User userFound = findById(userDto.getId());
         userFound.setPhotoUrl(userDto.getPhotoUrl());
         userFound.setName(userDto.getName());

@@ -7,7 +7,7 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class UserPostsDto {
+public class UserPostsContentDto {
     private Long id;
     private String content;
     private String date;
