@@ -1,7 +1,7 @@
-import { Component, OnInit, HostListener  } from '@angular/core';
+import { Component, OnInit, HostListener, TemplateRef, VERSION, ViewChild   } from '@angular/core';
 import { UserService } from './services/user.service';
-import { CanLoad, Route, UrlSegment, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   title = 'social.network.app';
   private userData: any;
   isAuthenticated: boolean = false;
+
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -43,6 +44,9 @@ export class AppComponent implements OnInit {
     // Verificar se a página está sendo recarregada
     return performance && performance.navigation && performance.navigation.type === 1;
   }
+
+
+
 
 
   // canLoad(

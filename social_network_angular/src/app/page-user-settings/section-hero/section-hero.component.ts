@@ -4,6 +4,7 @@ import { UserService } from 'src/app/services/user.service';
 import { FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
+
 declare var Typed: any;
 @Component({
   selector: 'app-section-hero',
@@ -13,7 +14,7 @@ declare var Typed: any;
 export class SectionHeroComponent implements OnInit {
 
 
-  isAccordionOpen = true;
+  isAccordionOpen = false;
   toggleAccordion() {
     this.isAccordionOpen = !this.isAccordionOpen;
   }
@@ -23,41 +24,9 @@ export class SectionHeroComponent implements OnInit {
 
   private userData: any;
   userNickName: any;
-  userPhoto: any;
-  userName: any;
   userWallpaper: any;
   textColor: any;
-  userSelfDescription: string = "";
-  ngOnInit() {
-    const userState = this.userService.localStorageGetUserInfo();
-    if (userState) {
-      this.userData = userState;
-    }
-
-    this.userService.getUserAddres(this.userData.userId).subscribe(
-      (response: any) => {
-
-        console.log(response);
-      }
-    );
-
-
-    this.userSettings.getUserHero(this.userData.userId).subscribe(
-      (response: any) => {
-        this.userWallpaper = response?.userWallpaper;
-        this.userName = response?.userName;
-        this.textColor = response?.textColor;
-        this.userNickName = response?.userNickName;
-        this.userPhoto = response?.userPhoto;
-        this.userSelfDescription = response?.userSelfDescription;
-
-      },
-      (error) => {
-        console.error('Erro ao buscar informações do usuário:', error);
-      }
-    );
-  }
-
+  userSelfDescription: any;
 
   userNickNameControl = new FormControl();
   userPhotoControl = new FormControl();
@@ -66,7 +35,40 @@ export class SectionHeroComponent implements OnInit {
   userSelfDescriptionControl = new FormControl();
   selectedColor: string = 'white';
 
-  saveUserHero() {
+  ngOnInit() {
+    const userState = this.userService.localStorageGetUserInfo();
+    if (userState) {
+      this.userData = userState;
+    }
+
+    this.userService.getUserAddress(this.userData.userId).subscribe(
+      (response: any) => {
+        this.cepControl.setValue(response.cep);
+        this.ufControl.setValue(response.uf);
+        this.cidadeControl.setValue(response.localidade);
+        console.log(response);
+      }
+    );
+
+
+    this.userSettings.getUserHero(this.userData.userId).subscribe(
+      (response: any) => {
+        this.userWallpaperControl.setValue(response?.userWallpaper);
+        this.textColor = response?.textColor;
+        this.userNickNameControl.setValue(response?.userNickName);
+        this.userPhotoControl.setValue(response?.userPhoto) ;
+        this.userSelfDescriptionControl.setValue(response?.userSelfDescription) ;
+        this.userWallpaper = this.userWallpaperControl.value;
+        this.userNickName = this.userNickNameControl.value;
+        this.userSelfDescription = this.userSelfDescriptionControl.value;
+      },
+      (error) => {
+        console.error('Erro ao buscar informações do usuário:', error);
+      }
+    );
+  }
+
+  save() {
     const selectedColor = (document.getElementById('corTexto') as HTMLSelectElement).value;
 
     const body = {
@@ -81,14 +83,14 @@ export class SectionHeroComponent implements OnInit {
     this.userSettings.saveUserHero(body).subscribe(
       (response) => {
         window.location.reload();
-
+        this.addAddress();
       },
       (error) => {
         console.log(error);
       }
     );
 
-    this.addEndereco();
+
 
   }
 
@@ -121,7 +123,7 @@ export class SectionHeroComponent implements OnInit {
     }
   }
 
-  addEndereco() {
+  addAddress() {
     const requestBody = {
       cep: this.cepControl.value,
       logradouro: this.ruaControl.value,

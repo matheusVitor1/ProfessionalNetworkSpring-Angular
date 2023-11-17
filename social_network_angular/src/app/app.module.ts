@@ -13,6 +13,10 @@ import { HeaderLoggedInComponent } from './header-logged-in/header-logged-in.com
 import { PageUserSettingsComponent } from './page-user-settings/page-user-settings.component';
 import { SectionHeroComponent } from './page-user-settings/section-hero/section-hero.component';
 import { SectionAboutComponent } from './page-user-settings/section-about/section-about.component';
+import { DynamicModalComponent } from './dynamic-modal/dynamic-modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SectionEmploymentRecordComponent } from './page-user-settings/section-employment-record/section-employment-record.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import { SectionAboutComponent } from './page-user-settings/section-about/sectio
     HeaderLoggedInComponent,
     PageUserSettingsComponent,
     SectionHeroComponent,
-    SectionAboutComponent
+    SectionAboutComponent,
+    DynamicModalComponent,
+    SectionEmploymentRecordComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,9 @@ import { SectionAboutComponent } from './page-user-settings/section-about/sectio
     }),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+
 
   ],
   providers: [],

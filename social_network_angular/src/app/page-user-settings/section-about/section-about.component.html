@@ -1,11 +1,51 @@
 <!-- ======= About Section ======= -->
 <section id="about" class="about">
   <div class="container">
-
     <div class="section-title">
       <h2>Sobre</h2>
-      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
     </div>
+    <button
+    (click)="openModal()"
+    data-testid="button-login"
+  >
+   Abrir Modal
+
+
+   <div #modal></div>
+  </button>
+
+    <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
+      <!-- Restante do código modal -->
+    </div>
+
+
+    <div class="accordion ">
+      <div class="accordion-item">
+        <h2 class="accordion-header ">
+          <button class="accordion-button" type="button" (click)="toggleAccordion()">
+            Editar Sobre
+          </button>
+        </h2>
+        <div *ngIf="isAccordionOpen" class="accordion-collapse">
+          <div class="accordion-body">
+            <form class="php-email-form" data-aos="fade-up" data-aos-delay="100" style="border-radius: 10px; ">
+              <!-- Start row -->
+              <div class="row">
+
+                <div class="col-md-12 mb-3 ">
+                  <label>Foto do perfil:</label>
+                  <input type="text" class="form-control"
+                    placeholder="Foto da Capa" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <div class="validate"></div>
+                </div>
+              </div>
+
+            </form><!-- End Form -->
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <div class="row">
       <div class="col-lg-4" data-aos="fade-right">
@@ -35,8 +75,10 @@
           </div>
         </div>
         <p>
-          Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-          Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
+          Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut.
+          Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
+          Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid
+          amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
         </p>
       </div>
     </div>

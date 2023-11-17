@@ -64,7 +64,7 @@ public class AddressService {
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado ");
             }
         } else {
-            
+
             addressFound.setUf(addressDto.getUf());
             addressFound.setCep(addressDto.getCep());
             addressFound.setBairro(addressDto.getBairro());

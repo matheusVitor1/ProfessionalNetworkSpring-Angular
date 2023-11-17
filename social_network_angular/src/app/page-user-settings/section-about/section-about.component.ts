@@ -1,5 +1,10 @@
 import { UserService } from './../../services/user.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { SectionEmploymentRecordComponent } from '../section-employment-record/section-employment-record.component';
+
+import { ModalService } from 'src/app/services/modal.service';
+
 
 @Component({
   selector: 'app-section-about',
@@ -8,8 +13,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionAboutComponent implements OnInit{
 
-  constructor (private userService: UserService){
+  isAccordionOpen = false;
+  toggleAccordion() {
+    this.isAccordionOpen = !this.isAccordionOpen;
+  }
 
+  constructor (private modalService: ModalService ,private userService: UserService){}
+  @ViewChild('modal', { read: ViewContainerRef, static: true })
+  entry!: ViewContainerRef;
+  sub!: Subscription;
+
+openModal() {
+// MyComponent é o componente que será renderizado dentro do seu body
+    this.sub = this.modalService
+      .openModal(this.entry, 'Título do modal', SectionEmploymentRecordComponent)
+      .subscribe((v) => {
+        // dispara quando é aberto o modal
+      });
   }
 
   private userData: any;

@@ -38,7 +38,7 @@ export class UserService {
     return this.http.get(url);
   }
 
-  getUserAddres(userId: number){
+  getUserAddress(userId: number){
     const url = `http://localhost:8080/address/${userId}`;
     return this.http.get(url);
   }
