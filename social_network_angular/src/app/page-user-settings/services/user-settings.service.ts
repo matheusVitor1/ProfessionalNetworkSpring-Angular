@@ -16,9 +16,11 @@ export class UserSettingsService {
     return this.http.post(url, body);
   }
 
-  getUserHero(userId: number){
-    const url = `http://localhost:8080/hero/${userId}`;
-    return this.http.get(url);
+  saveUserAbout(body: any): Observable<any>{
+    const url = 'http://localhost:8080/about/new';
+    return this.http.post(url, body);
   }
+
+
 
 }

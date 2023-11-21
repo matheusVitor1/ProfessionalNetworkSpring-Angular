@@ -43,6 +43,21 @@ export class UserService {
     return this.http.get(url);
   }
 
+  getUserHero(userId: number){
+    const url = `http://localhost:8080/hero/${userId}`;
+    return this.http.get(url);
+  }
+
+  getUserAbout(userId: number){
+    const url = `http://localhost:8080/about/${userId}`;
+    return this.http.get(url);
+  }
+
+  getUserEmloymentRecord(userId: number){
+    const url = `http://localhost:8080/EmploymentRecord/${userId}`;
+    return this.http.get(url);
+  }
+
 
 
   setAuthenticated(isAuthenticated: boolean): void {

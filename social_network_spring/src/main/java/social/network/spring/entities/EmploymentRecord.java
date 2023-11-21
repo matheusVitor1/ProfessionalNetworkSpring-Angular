@@ -15,20 +15,34 @@ public class EmploymentRecord {
     private Long id;
 
     @Column (nullable = false)
-    private String position;
+    private String jobPosition;
 
     @Column (nullable = false)
     private String company;
 
     @Column (nullable = false)
-    private String startDate;
+    private String startYear;
 
     @Column (nullable = false)
-    private String endDate;
+    private String endYear;
 
-    @Column (nullable = false)
+    @Lob
     private String description;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
+
+    public EmploymentRecord() {
+
+    }
+
+    public EmploymentRecord(String jobPosition, String company, String startYear, String endYear, String description, User user) {
+        this.jobPosition = jobPosition;
+        this.company = company;
+        this.startYear = startYear;
+        this.endYear = endYear;
+        this.description = description;
+        this.user = user;
+    }
 }

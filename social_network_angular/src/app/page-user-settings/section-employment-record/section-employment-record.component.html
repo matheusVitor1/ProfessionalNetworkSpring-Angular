@@ -1,1 +1,31 @@
-<p>section-employment-record works!</p>
+<!-- ======= Resume Section ======= -->
+<section id="resume " class="resume shadow">
+  <div class="container position-relative rounded" >
+
+    <div class="section-title">
+      <h2>Professional Experience</h2>
+    </div>
+
+    <a class="modal-button d-flex align-items-center justify-content-center " data-aos="fade-left">
+      <i class="bi bi-plus"></i>
+    </a>
+
+    <div class="row" *ngFor="let record of userEmploymentRecord" >
+      <div class="col-md-10" data-aos="fade-up" data-aos-delay="100">
+        <div class="resume-item mt-3">
+          <h4>{{record.jobPosition}}</h4>
+          <h5> {{record.company}} | {{record.startYear}} - {{record.endYear}} | New York, NY </h5>
+          <p>
+              {{record.description}}
+          </p>
+        </div>
+      </div>
+      <div class="col-md-2 d-flex align-items-center justify-content-center " data-aos="fade-up">
+        <a class="notAbsolute-modal-button d-flex align-items-center  justify-content-center" >
+          <i class="bi bi-pencil-square" (click)="openEditRecordModal(record.id, record.jobPosition, record.company, record.startYear, record.endYear, record.description, record.userId)"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Resume Section -->

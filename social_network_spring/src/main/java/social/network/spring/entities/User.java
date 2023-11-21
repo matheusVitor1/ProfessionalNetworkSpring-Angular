@@ -1,7 +1,10 @@
 package social.network.spring.entities;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "USERS")
@@ -33,6 +36,8 @@ public class User {
     @Column(nullable = false)
     private boolean active;
 
+    private String phone;
+
     @Column(nullable = false, unique = true)
     private String email;
 
@@ -45,6 +50,12 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Address userAddress;
 
+    @OneToOne(mappedBy = "user")
+    private UserAboutContent userAboutContent;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties("user")
+    private List<EmploymentRecord> employmentRecords;
     public User() {
 
     }

@@ -1,9 +1,9 @@
-import { UserService } from './../../services/user.service';
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { SectionEmploymentRecordComponent } from '../section-employment-record/section-employment-record.component';
 
-import { ModalService } from 'src/app/services/modal.service';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { UserService } from './../../services/user.service';
+import { AboutModalComponent } from './about-modal/about-modal.component';
+import { UserSettingsService } from '../services/user-settings.service';
 
 
 @Component({
@@ -13,31 +13,19 @@ import { ModalService } from 'src/app/services/modal.service';
 })
 export class SectionAboutComponent implements OnInit{
 
-  isAccordionOpen = false;
-  toggleAccordion() {
-    this.isAccordionOpen = !this.isAccordionOpen;
-  }
-
-  constructor (private modalService: ModalService ,private userService: UserService){}
-  @ViewChild('modal', { read: ViewContainerRef, static: true })
-  entry!: ViewContainerRef;
-  sub!: Subscription;
-
-openModal() {
-// MyComponent é o componente que será renderizado dentro do seu body
-    this.sub = this.modalService
-      .openModal(this.entry, 'Título do modal', SectionEmploymentRecordComponent)
-      .subscribe((v) => {
-        // dispara quando é aberto o modal
-      });
-  }
-
   private userData: any;
   userPhoto: string = "";
-  userName: string = "";
-  userBirthday: string = "";
+  jobPosition: string = "";
   userAge: number = 0;
   userEmail: string = "";
+  userIntroduction: string = "";
+  userUf: string = "";
+  userCity: string = "";
+  userPhone: string = "";
+
+  constructor (private userService: UserService, public dialog: MatDialog, private userSettings: UserSettingsService){}
+
+
 
   ngOnInit() {
     const userState = this.userService.localStorageGetUserInfo();
@@ -45,15 +33,34 @@ openModal() {
       this.userData = userState;
     }
 
-    this.userService.getUserInformation(this.userData.userId).subscribe (
+    this.userService.getUserAbout(this.userData.userId).subscribe(
       (response: any) => {
-        this.userName = response.name;
-        this.userAge = response.age;
-        this.userBirthday = response.birthday;
-        this.userPhoto = response.photoUrl;
-        this.userEmail = response.email;
+        this.userPhoto = response?.userPhoto;
+        this.userEmail = response?.userEmail;
+        this.jobPosition = response?.jobPosition;
+        this.userIntroduction = response?.userIntroduction;
+        this.userAge = response?.userAge;
+        this.userCity = response?.city;
+        this.userUf = response?.uf;
+        this.userPhone = response?.userPhone;
+        console.log(this.userPhoto);
+      },
+      (error) => {
+        console.error('Erro ao buscar informações do usuário:', error);
       }
     );
   }
 
+  openAboutModal(): void {
+    const dialogRef = this.dialog.open(AboutModalComponent, {
+      width: '50%',
+      height: '75%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Modal fechada', result);
+    });
+  }
 }
+
+

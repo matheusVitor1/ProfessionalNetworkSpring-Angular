@@ -24,6 +24,8 @@ public class UserDto {
 
     private boolean active;
 
+    private String phone;
+
     private String email;
 
     private String password;

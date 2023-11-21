@@ -1,4 +1,5 @@
 package social.network.spring.entities;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,23 +16,21 @@ public class EducationalBackground {
     private Long id;
 
     @Column (nullable = false)
-    private String degree;
+    private String jobPosition;
 
     @Column (nullable = false)
     private String institution;
 
     @Column (nullable = false)
-    private String major;
+    private String startYear;
 
     @Column (nullable = false)
-    private String startDate;
-
-    @Column (nullable = false)
-    private String endDate;
+    private String endYear;
 
     @Column (nullable = false)
     private String description;
 
     @ManyToOne
+    @JsonIgnoreProperties("employmentRecords")
     private User user;
 }

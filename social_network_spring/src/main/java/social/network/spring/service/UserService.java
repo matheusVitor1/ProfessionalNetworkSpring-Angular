@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-;
+// teste
 
 @Service
 public class UserService {
@@ -94,7 +94,7 @@ public class UserService {
         return true;
     }
 
-    private int calculateAge(String birthDateStr) {
+    public int calculateAge(String birthDateStr) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date birthDate;
         try {

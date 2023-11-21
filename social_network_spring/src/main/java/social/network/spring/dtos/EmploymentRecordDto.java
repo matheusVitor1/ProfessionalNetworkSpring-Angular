@@ -9,10 +9,10 @@ import lombok.Setter;
 @Setter
 public class EmploymentRecordDto {
     private Long id;
-    private String position;
+    private String jobPosition;
     private String company;
-    private String startDate;
-    private String endDate;
+    private String startYear;
+    private String endYear;
     private String description;
     private Long userId;
 

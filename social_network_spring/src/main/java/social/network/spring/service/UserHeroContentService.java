@@ -27,14 +27,12 @@ public class UserHeroContentService {
     }
 
     public UserHeroContentDto createHeroDto ( UserHeroContent userHeroContent){
-        User userFound = userService.findById(userHeroContent.getUser().getId());
         return UserHeroContentDto.builder()
                 .userSelfDescription(userHeroContent.getUserSelfDescription())
                 .userId(userHeroContent.getUser().getId())
                 .userWallpaper(userHeroContent.getUserWallpaper())
-                .textColor(userHeroContent.getTextColor())
-                .userNickName(userFound.getName())
-                .userPhoto(userFound.getPhotoUrl())
+                .userNickName(userHeroContent.getUser().getName())
+                .userPhoto(userHeroContent.getUser().getPhotoUrl())
                 .build();
     }
 
@@ -53,7 +51,6 @@ public class UserHeroContentService {
                 UserHeroContent userHeroContent = new UserHeroContent(
                         userHeroContentDto.getUserWallpaper(),
                         userHeroContentDto.getUserSelfDescription(),
-                        userHeroContentDto.getTextColor(),
                         userFound
                 );
                 userHeroContentRepository.save(userHeroContent);
@@ -64,9 +61,8 @@ public class UserHeroContentService {
         } else {
             heroFound.setUserWallpaper(userHeroContentDto.getUserWallpaper());
             heroFound.setUserSelfDescription(userHeroContentDto.getUserSelfDescription());
-            heroFound.setTextColor(userHeroContentDto.getTextColor());
-            userFound.setPhotoUrl(userHeroContentDto.getUserPhoto());
-            userFound.setName(userHeroContentDto.getUserNickName());
+            heroFound.getUser().setPhotoUrl(userHeroContentDto.getUserPhoto());
+            heroFound.getUser().setName(userHeroContentDto.getUserNickName());
             userHeroContentRepository.save(heroFound);
             return true;
         }

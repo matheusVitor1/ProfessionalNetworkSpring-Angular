@@ -2,6 +2,7 @@ import { UserService } from './../services/user.service';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -33,7 +34,7 @@ export class PageUserCadastroComponent {
     }
   }
 
-  constructor (private userService: UserService, private router: Router,){}
+  constructor (private userService: UserService, private router: Router, private http: HttpClient){}
 
   registerUser(){
     const requestBody = {
@@ -61,6 +62,9 @@ export class PageUserCadastroComponent {
       }
     });
   }
+
+
+
 
 
 }

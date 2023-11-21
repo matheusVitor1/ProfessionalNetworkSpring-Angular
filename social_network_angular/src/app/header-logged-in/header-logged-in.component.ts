@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Renderer2, ElementRef, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { UserSettingsService } from '../page-user-settings/services/user-settings.service';
+import { HeroModalComponent } from '../page-user-settings/section-hero/hero-modal/hero-modal.component';
 
 @Component({
   selector: 'app-header-logged-in',
@@ -9,16 +12,13 @@ import { Router } from '@angular/router';
 })
 export class HeaderLoggedInComponent implements OnInit {
   private userData: any;
-
   userName: any;
   userPhoto: any;
+  userWallpaper: any;
+  userSelfDescription: any;
 
-  constructor (private userService: UserService, private router: Router) {}
+  constructor (public dialog: MatDialog,private userService: UserService, private userSettings: UserSettingsService, private renderer: Renderer2, private el: ElementRef, private router: Router) {}
 
-  logout() {
-    this.userService.logoutUser();
-    this.router.navigate(['/login']);
-  }
 
   ngOnInit() {
     const userState = this.userService.localStorageGetUserInfo();
@@ -26,14 +26,35 @@ export class HeaderLoggedInComponent implements OnInit {
       this.userData = userState;
     }
 
-    this.userService.getUserInformation(this.userData.userId).subscribe(
+    this.userService.getUserHero(this.userData.userId).subscribe(
       (response: any) => {
-        this.userPhoto = response?.photoUrl; // Usando o Elvis Operator
-        this.userName = response?.name; // Usando o Elvis Operator
+        this.userPhoto = response?.userPhoto;
+        this.userWallpaper = response?.userWallpaper;
+        this.userName = response?.userNickName;
+        this.userSelfDescription = response?.userSelfDescription;
+
       },
       (error) => {
         console.error('Erro ao buscar informações do usuário:', error);
       }
     );
+  }
+
+  logout() {
+    this.userService.logoutUser();
+    this.router.navigate(['/login']);
+  }
+
+  openAboutModal(): void {
+    const dialogRef = this.dialog.open(HeroModalComponent, {
+      width: '50%',
+      height: '65%'
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // você pode adicionar lógica aqui para ser executada após o fechamento da modal, se necessário
+      console.log('Modal fechada', result);
+    });
   }
 }

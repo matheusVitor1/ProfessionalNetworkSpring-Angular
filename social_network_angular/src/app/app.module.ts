@@ -13,9 +13,14 @@ import { HeaderLoggedInComponent } from './header-logged-in/header-logged-in.com
 import { PageUserSettingsComponent } from './page-user-settings/page-user-settings.component';
 import { SectionHeroComponent } from './page-user-settings/section-hero/section-hero.component';
 import { SectionAboutComponent } from './page-user-settings/section-about/section-about.component';
-import { DynamicModalComponent } from './dynamic-modal/dynamic-modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SectionEmploymentRecordComponent } from './page-user-settings/section-employment-record/section-employment-record.component';
+import { AboutModalComponent } from './page-user-settings/section-about/about-modal/about-modal.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { HeroModalComponent } from './page-user-settings/section-hero/hero-modal/hero-modal.component';
+import { AddRecordModalComponent } from './page-user-settings/section-employment-record/add-record-modal/add-record-modal.component';
+import { EditRecordModalComponent } from './page-user-settings/section-employment-record/edit-record-modal/edit-record-modal.component';
+
 
 
 @NgModule({
@@ -28,8 +33,12 @@ import { SectionEmploymentRecordComponent } from './page-user-settings/section-e
     PageUserSettingsComponent,
     SectionHeroComponent,
     SectionAboutComponent,
-    DynamicModalComponent,
-    SectionEmploymentRecordComponent
+    SectionEmploymentRecordComponent,
+    AboutModalComponent,
+    HeroModalComponent,
+    AddRecordModalComponent,
+    EditRecordModalComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -41,6 +50,7 @@ import { SectionEmploymentRecordComponent } from './page-user-settings/section-e
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatDialogModule
 
 
   ],

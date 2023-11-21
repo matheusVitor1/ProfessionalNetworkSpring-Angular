@@ -18,19 +18,18 @@ public class UserHeroContent {
 
     private String userSelfDescription;
 
-    private String textColor;
 
     @OneToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     public UserHeroContent(){
 
     }
 
-    public UserHeroContent(String userWallpaper, String userSelfDescription, String textColor, User user) {
+    public UserHeroContent(String userWallpaper, String userSelfDescription, User user) {
         this.userWallpaper = userWallpaper;
         this.userSelfDescription = userSelfDescription;
-        this.textColor = textColor;
         this.user = user;
     }
 

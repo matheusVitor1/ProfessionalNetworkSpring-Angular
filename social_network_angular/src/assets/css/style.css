@@ -66,6 +66,100 @@ h6 {
   opacity: 1;
 }
 
+
+
+/*--------------------------------------------------------------
+# Modal
+--------------------------------------------------------------*/
+.modal-section-bg {
+  background: #f5f8fd;
+}
+
+
+.modal-section-title h2 {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  color: black;
+}
+
+
+.modal-section-title p {
+  margin-bottom: 0;
+}
+
+
+.modal-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #149ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+.modal-button i {
+  font-size: 28px;
+  color: #fff;
+  line-height: 0;
+}
+
+.modal-button:hover {
+  background: #2eafec;
+  color: #fff;
+}
+
+
+/*--------------------------------------------------------------
+# Edit Buttom
+--------------------------------------------------------------*/
+.notAbsolute-modal-button {
+  background: #149ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+.notAbsolute-modal-button i {
+  font-size: 28px;
+  color: #fff;
+  line-height: 0;
+}
+
+.notAbsolute-modal-button:hover {
+  background: #2eafec;
+  color: #fff;
+}
+
+
+/*--------------------------------------------------------------
+# Edit Buttom
+--------------------------------------------------------------*/
+.close-modal-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+.close-modal-button i {
+  font-size: 28px;
+  color: #149ddd;
+  line-height: 0;
+}
+
+.close-modal-button:hover {
+  background: rgba(20, 157, 221, 0.2);
+  color: #fff;
+}
+
+
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -91,13 +185,23 @@ h6 {
 }
 
 #header .profile h1 {
-  font-size: 24px;
+  font-size: 25px;
   margin: 0;
   padding: 0;
   font-weight: 600;
   -moz-text-align-last: center;
   text-align-last: center;
   font-family: "Poppins", sans-serif;
+}
+#header .profile p span {
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+  color: #a8a9b4
 }
 
 #header .profile h1 a,
@@ -254,66 +358,24 @@ h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
+  height: 30vh;
   background-size: cover;
+  background-position: center center;
+
 }
 
-#hero:before {
-  content: "";
-  background: rgba(5, 13, 24, 0.3);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
-
-#hero .hero-container {
-  position: relative;
-  z-index: 2;
-  min-width: 300px;
-}
-
-#hero h1 {
+.hero h1 {
   margin: 0 0 10px 0;
-  font-size: 64px;
+  font-size: 40px;
   font-weight: 700;
   line-height: 56px;
-  color: #fff;
+  color: #173b6c;
 }
 
-#hero p {
-  color: #fff;
-  margin-bottom: 50px;
-  font-size: 26px;
-  font-family: "Poppins", sans-serif;
-}
-
-#hero p span {
-  color: #fff;
-  padding-bottom: 4px;
+.hero p span {
+  color: #173b6c;
+  font-size: 25px;
   letter-spacing: 1px;
-  border-bottom: 3px solid #149ddd;
-}
-
-@media (min-width: 1024px) {
-  #hero {
-    background-attachment: fixed;
-  }
-}
-
-@media (max-width: 768px) {
-  #hero h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-
-  #hero h2 {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
-  }
 }
 
 
@@ -341,75 +403,6 @@ h6 {
 }
 
 
-/*--------------------------------------------------------------
-# HeroSettings
---------------------------------------------------------------*/
-#heroSettings {
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-
-}
-
-#heroSettings:before {
-  content: "";
-  background: rgba(5, 13, 24, 0.3);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
-
-
-
-#heroSettings .hero-container {
-  position: relative;
-  z-index: 2;
-  min-width: 300px;
-}
-
-#heroSettings h1 {
-  margin: 0 0 10px 0;
-  font-size: 64px;
-  font-weight: 700;
-  line-height: 56px;
-  color: #fff;
-}
-
-
-#heroSettings p {
-  margin-bottom: 50px;
-  font-size: 26px;
-  font-family: "Poppins", sans-serif;
-}
-
-#heroSettings p span {
-
-  padding-bottom: 4px;
-  letter-spacing: 1px;
-  border-bottom: 3px solid #149ddd;
-}
-
-@media (min-width: 1024px) {
-  #heroSettings {
-    background-attachment: fixed;
-  }
-}
-
-@media (max-width: 768px) {
-  #heroSettings h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-
-  #heroSettings h2 {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
-  }
-}
 
 
 /*--------------------------------------------------------------
@@ -424,9 +417,6 @@ section {
   background: #f5f8fd;
 }
 
-.section-title {
-  padding-bottom: 30px;
-}
 
 .section-title h2 {
   font-size: 32px;
@@ -455,7 +445,12 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+
 .about{
+  background-color: #f5f8fd;
+}
+
+.about .container{
   background-color: #fff;
 }
 
@@ -582,10 +577,14 @@ section {
 /*--------------------------------------------------------------
 # Resume
 --------------------------------------------------------------*/
+.resume{
+  background-color: #fff;
+}
+
 .resume .resume-title {
   font-size: 26px;
   font-weight: 700;
-  margin-top: 20px;
+
   margin-bottom: 20px;
   color: #050d18;
 }
@@ -953,119 +952,6 @@ section {
   background-color: #149ddd;
 }
 
-/* No seu arquivo de estilo CSS */
-/* No seu arquivo de estilo CSS */
-.custom-modal {
-  width: 500px;
-  height: auto;
-  background-color: white;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.custom-modal::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-}
-
-/*--------------------------------------------------------------
-# Contact
---------------------------------------------------------------*/
-
-.contact{
-  height: 100vh;
-  background: url("../img/loginBackImage.jfif") top center;
-  background-size: cover;
-}
-
-
-.contact .profile img {
-  margin: 15px auto;
-  display: block;
-  width: 120px;
-  border: 8px solid #2c2f3f;
-}
-
-.contact .info {
-  padding: 30px;
-  background: #fff;
-  width: 100%;
-  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
-}
-
-.contact .info i {
-  font-size: 20px;
-  color: #149ddd;
-  float: left;
-  width: 44px;
-  height: 44px;
-  background: #dff3fc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  transition: all 0.3s ease-in-out;
-}
-
-.contact .info h4 {
-  padding: 0 0 0 60px;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #050d18;
-}
-
-.contact .info p {
-  padding: 0 0 10px 60px;
-  margin-bottom: 20px;
-  font-size: 14px;
-  color: #173b6c;
-}
-
-.contact .info .email p {
-  padding-top: 5px;
-}
-
-.contact .info .social-links {
-  padding-left: 60px;
-}
-
-.contact .info .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  background: #333;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-  margin-right: 10px;
-}
-
-.contact .info .social-links a:hover {
-  background: #149ddd;
-  color: #fff;
-}
-
-.contact .info .email:hover i,
-.contact .info .address:hover i,
-.contact .info .phone:hover i {
-  background: #149ddd;
-  color: #fff;
-}
-
 .php-email-form {
   width: 100%;
   padding: 30px;
@@ -1169,7 +1055,20 @@ section {
   border-radius: 4px;
 }
 
-.php-email-form button[type=submit]:hover {
+button[type=submit]:hover {
+  background: #37b3ed;
+}
+
+button[type=submit] {
+  background: #149ddd;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+button[type=submit]:hover {
   background: #37b3ed;
 }
 
@@ -1190,7 +1089,7 @@ section {
 
 .login{
   height: 100vh;
-  background: url("../img/login.jfif") top center;
+  background: url("../img/bgMain.jpeg") top center;
   background-size: cover;
 }
 
@@ -1311,7 +1210,7 @@ section {
 --------------------------------------------------------------*/
 
 .cadastroCliente{
-  background: url("../img/login.jfif") top center;
+  background: url("../img/bgMain.jpeg") top center;
   background-size: cover;
 }
 

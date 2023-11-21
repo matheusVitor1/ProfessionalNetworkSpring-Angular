@@ -1,0 +1,65 @@
+<div class="container rounded">
+
+  <div class="row mt-3" data-aos="fade-down">
+    <div class="col-md-12 d-flex align-items-center justify-content-center">
+      <div class="modal-section-title">
+        <h2>Editar Introdução</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col">
+      <form class="php-email-form" data-aos="fade-down" data-aos-delay="100" style="border-radius: 10px; ">
+
+        <div class="container">
+          <span class="close-modal-button d-flex align-items-center justify-content-center" (click)="onCloseClick()">
+            <i class="bi bi-x"></i>
+          </span>
+
+          <div class="row">
+            <div class="col-md-12 mb-3 ">
+              <label>Foto do perfil</label>
+              <input type="text" class="form-control"  [formControl]="userPhotoControl"
+                placeholder="Foto da Capa" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+
+
+            <div class="col-md-12 mb-3 ">
+              <label>Foto da capa</label>
+              <input type="text" class="form-control" [formControl]="userWallpaperControl"
+                placeholder="Foto da Capa" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+
+            <div class="col-md-12 mb-3 ">
+              <label>Nome*</label>
+              <input type="text" class="form-control" [formControl]="userNickNameControl"
+                placeholder="Nome de usuário" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+
+
+            <div class="col-md-12 mb-3">
+              <label>Título</label>
+              <input type="text" class="form-control"
+                [formControl]="userSelfDescriptionControl" placeholder="Título" data-rule="minlen:6"
+                data-msg="Please enter a password with at least 6 characters">
+              <div class="validate"></div>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="mt-3" style="width: 150px;" (click)="saveChanges()">Salvar</button>
+            </div>
+          </div>
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</div>
+
+

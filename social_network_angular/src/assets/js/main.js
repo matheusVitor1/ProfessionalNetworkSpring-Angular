@@ -145,28 +145,28 @@ document.addEventListener('DOMContentLoaded', function() {
    * Hero type effect
    */
 
-  const typedSpan = document.querySelector('.typed');
+  // const typedSpan = document.querySelector('.typed');
 
-  if (typedSpan) {
-    let typed_strings = typedSpan.textContent; // Obtenha o conteúdo do span
-    typed_strings = typed_strings.split(',').map(item => item.trim());
+  // if (typedSpan) {
+  //   let typed_strings = typedSpan.textContent; // Obtenha o conteúdo do span
+  //   typed_strings = typed_strings.split(',').map(item => item.trim());
 
-    // Adicione a primeira mensagem ao final do array
-    typed_strings.push(typed_strings[0]);
+  //   // Adicione a primeira mensagem ao final do array
+  //   typed_strings.push(typed_strings[0]);
 
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
-  }
-
-
+  //   new Typed('.typed', {
+  //     strings: typed_strings,
+  //     loop: true,
+  //     typeSpeed: 100,
+  //     backSpeed: 50,
+  //     backDelay: 2000
+  //   });
+  // }
 
 
-      /**
+
+
+  /**
    * Skills animation
    */
   let skilsContent = select('.skills-content');
