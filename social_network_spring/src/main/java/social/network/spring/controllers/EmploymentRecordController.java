@@ -26,7 +26,7 @@ public class EmploymentRecordController {
 
             if (!records.isEmpty()) {
                 return new ResponseEntity<>(records, HttpStatus.OK);
-            } else {-  
+            } else {
                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         } catch (Exception e) {

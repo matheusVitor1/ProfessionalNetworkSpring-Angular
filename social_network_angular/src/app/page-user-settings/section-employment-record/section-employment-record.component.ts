@@ -14,7 +14,7 @@ export class SectionEmploymentRecordComponent implements OnInit{
 
   private userData: any;
   userEmploymentRecord:any [] = [];
-  recordResult:any [] = [];
+  recordResult = {};
 
   ngOnInit(){
     const userState = this.userService.localStorageGetUserInfo();
@@ -34,7 +34,7 @@ export class SectionEmploymentRecordComponent implements OnInit{
   }
 
   openEditRecordModal(id:number, jobPosition:string, company:string, startYear:string, endYear:string, description:String, userId:number): void {
-    this.recordResult = [id, jobPosition, company, startYear,endYear,description,userId];
+    this.recordResult = {id, jobPosition, company, startYear,endYear,description,userId};
     const dialogRef = this.dialog.open(EditRecordModalComponent, {
       width: '50%',
       height: '75%',

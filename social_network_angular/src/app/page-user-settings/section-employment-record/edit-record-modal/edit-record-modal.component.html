@@ -18,6 +18,33 @@
 
           <div class="row">
 
+            <div class="col-md-12 mb-3">
+              <label>Cargo</label>
+              <input type="text" class="form-control" [formControl]="userJobPosition" placeholder="Nome de usuário"
+                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+
+            <div class="col-md-12 mb-3">
+              <label>Empresa</label>
+              <input type="text" class="form-control" [formControl]="userCompany" placeholder="Nome de usuário"
+                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Ano de Início</label>
+              <input type="text" class="form-control" [formControl]="startYear" placeholder="Nome de usuário"
+                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Ano de Término</label>
+              <input type="text" class="form-control" [formControl]="endYear" placeholder="Nome de usuário"
+                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
 
           </div>
 

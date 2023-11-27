@@ -11,13 +11,23 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./edit-record-modal.component.css']
 })
 export class EditRecordModalComponent {
+
+  userJobPosition = new FormControl();
+  userCompany = new FormControl ();
+  startYear = new FormControl ();
+  endYear = new FormControl ();
+  
   constructor(
     public dialogRef: MatDialogRef<EditRecordModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any,
     private userService: UserService, private userSettings: UserSettingsService, private http: HttpClient ) {
 
-      console.log(data);
+      this.userJobPosition.setValue(data.jobPosition);
+      this.userCompany.setValue(data.company);
+      this.startYear.setValue(data.startYear);
+      this.endYear.setValue(data.endYear);
     }
 
+    
 
 
 

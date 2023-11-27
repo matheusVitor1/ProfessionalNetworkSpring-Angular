@@ -37,8 +37,8 @@ public class UserHeroContentService {
     }
 
     public UserHeroContent findByUserId(Long userId) {
-        Optional<User> optionalUser = userRepository.findById(userId);
-        return  userHeroContentRepository.findByUser(optionalUser);
+
+        return  userHeroContentRepository.findByUserId(userId);
 
     }
 
