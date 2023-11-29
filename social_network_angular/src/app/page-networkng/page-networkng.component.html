@@ -1,5 +1,5 @@
 <!-- ======= users Section ======= -->
-<section id="users" class="users section-bg">
+<section id="users" class="users ">
   <div class="container" data-aos="fade-up">
 
     <div class="section-title">
@@ -11,15 +11,15 @@
 
     <div class="row " *ngFor="let record of userRecords">
 
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+      <div class="col-md-5" data-aos="zoom-in" data-aos-delay="100">
 
-        <div class="member-main">
+        <div class="container member-main">
           <div class="row">
-            <div [style.background-image]="'url(' + record.userWallpaper + ')'" style="height: 100px; width: 100%;   background-size: cover; background-position: center center;"> </div>
+            <div class="col-md-12" [style.background-image]="'url(' + record.userWallpaper + ')'" style="height: 100px; width: 100%;   background-size: cover; background-position: center center;"> </div>
           </div>
 
           <div class="row member">
-            <div class="col-md-4 pt-1 pb-1">
+            <div class="col-md-4 d-flex align-items-center justify-content-center pt-1 pb-1">
               <div class="pic"><img [src]="record.userPhoto" class="img-fluid" alt=""></div>
             </div>
 
