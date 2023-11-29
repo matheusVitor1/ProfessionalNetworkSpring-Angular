@@ -48,7 +48,6 @@ export class HeaderLoggedInComponent implements OnInit {
   openAboutModal(): void {
     const dialogRef = this.dialog.open(HeroModalComponent, {
       width: '50%',
-      height: '65%'
 
     });
 

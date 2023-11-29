@@ -1,26 +1,32 @@
 <!-- ======= Resume Section ======= -->
-<section id="resume " class="resume shadow">
-  <div class="container position-relative rounded" >
+<section id="resume " class="resume ">
+  <div class="container position-relative rounded shadow-sm"  data-aos="fade-up">
 
-    <div class="section-title">
-      <h2>Professional Experience</h2>
+    <div class="section-title mt-3">
+      <h2>Experiência</h2>
     </div>
 
-    <a class="modal-button d-flex align-items-center justify-content-center " data-aos="fade-left">
+    <a class="modal-button d-flex align-items-center justify-content-center " (click)="openAddRecordModal()" data-aos="fade-in">
       <i class="bi bi-plus"></i>
     </a>
 
-    <div class="row" *ngFor="let record of userEmploymentRecord" >
-      <div class="col-md-10" data-aos="fade-up" data-aos-delay="100">
-        <div class="resume-item mt-3">
-          <h4>{{record.jobPosition}}</h4>
-          <h5> {{record.company}} | {{record.startYear}} - {{record.endYear}} | New York, NY </h5>
-          <p>
+    <div class="row " *ngFor="let record of userEmploymentRecord" data-aos="fade-in">
+      <div class="col-md-10 "  data-aos-delay="100">
+        <div class="row mt-3 resume-item" >
+          <h3>{{record.jobPosition}}</h3>
+          <h4>{{record.company}}</h4>
+          <h5>  {{record.startYear}} - {{record.endYear}} </h5>
+
+          <p style="white-space: pre-line;">
               {{record.description}}
           </p>
         </div>
+
+        <div class="col">
+
+        </div>
       </div>
-      <div class="col-md-2 d-flex align-items-center justify-content-center " data-aos="fade-up">
+      <div class="col-md-2 d-flex align-items-center justify-content-center " data-aos="fade-in">
         <a class="notAbsolute-modal-button d-flex align-items-center  justify-content-center" >
           <i class="bi bi-pencil-square" (click)="openEditRecordModal(record.id, record.jobPosition, record.company, record.startYear, record.endYear, record.description, record.userId)"></i>
         </a>

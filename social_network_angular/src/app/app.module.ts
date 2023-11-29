@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderLoggedOutComponent } from './header-logged-out/header-logged-out.component';
 import { PageLoginComponent } from './page-login/page-login.component';
-import { PageUserCadastroComponent } from './page-user-cadastro/page-user-cadastro.component';
+import { PageUserCadastroComponent } from './page-user-register/page-user-cadastro.component';
 import { HeaderLoggedInComponent } from './header-logged-in/header-logged-in.component';
 import { PageUserSettingsComponent } from './page-user-settings/page-user-settings.component';
 import { SectionHeroComponent } from './page-user-settings/section-hero/section-hero.component';
@@ -20,6 +20,9 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { HeroModalComponent } from './page-user-settings/section-hero/hero-modal/hero-modal.component';
 import { AddRecordModalComponent } from './page-user-settings/section-employment-record/add-record-modal/add-record-modal.component';
 import { EditRecordModalComponent } from './page-user-settings/section-employment-record/edit-record-modal/edit-record-modal.component';
+import { FooterComponent } from './footer/footer.component';
+import { SectionEducationalBackgroundComponent } from './page-user-settings/section-educational-background/section-educational-background.component';
+import { EditEdubackgroundModalComponent } from './page-user-settings/edit-edubackground-modal/edit-edubackground-modal.component';
 
 
 
@@ -38,6 +41,9 @@ import { EditRecordModalComponent } from './page-user-settings/section-employmen
     HeroModalComponent,
     AddRecordModalComponent,
     EditRecordModalComponent,
+    FooterComponent,
+    SectionEducationalBackgroundComponent,
+    EditEdubackgroundModalComponent,
 
   ],
   imports: [

@@ -54,7 +54,12 @@ export class UserService {
   }
 
   getUserEmloymentRecord(userId: number){
-    const url = `http://localhost:8080/EmploymentRecord/${userId}`;
+    const url = `http://localhost:8080/employmentRecord/${userId}`;
+    return this.http.get(url);
+  }
+
+  getUserEduRecord(userId: number){
+    const url = `http://localhost:8080/educationalBackground/${userId}`;
     return this.http.get(url);
   }
 

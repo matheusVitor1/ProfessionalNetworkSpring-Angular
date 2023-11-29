@@ -22,5 +22,22 @@ export class UserSettingsService {
   }
 
 
+  saveUserEmployment(body: any): Observable<any>{
+    const url = 'http://localhost:8080/employmentRecord/new';
+    return this.http.post(url, body);
+  }
+
+  editUserEmployment(body: any): Observable<any>{
+    const url = 'http://localhost:8080/employmentRecord/edit';
+    return this.http.put(url, body);
+  }
+
+  deleteUserEmployment(id: number): Observable<any>{
+    const url = `http://localhost:8080/employmentRecord/remove/${id}`;
+    return this.http.delete(url);
+  }
+
+
+
 
 }

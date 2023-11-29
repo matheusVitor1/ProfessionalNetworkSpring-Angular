@@ -2,14 +2,14 @@
  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
  <!-- ======= Header ======= -->
- <header id="header">
+ <header id="header" data-aos="fade-in">
    <div class="d-flex flex-column">
 
      <div class="profile text-center" >
       <img [src]="userPhoto" alt="" class="img-fluid rounded-circle">
        <h1 class="text-light"><a>{{userName}}</a></h1>
        <p><span>{{userSelfDescription}}</span>
-        <a class="modal-button d-flex align-items-center justify-content-center mt-1"  (click)="openAboutModal()">
+        <a class="modal-button d-flex align-items-center justify-content-center mt-1"  (click)="openAboutModal()" data-aos="fade-in">
           <i class="bi bi-pencil-square"></i>
         </a>
 

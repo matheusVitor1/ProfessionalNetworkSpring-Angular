@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageLoginComponent } from './page-login/page-login.component';
-import { PageUserCadastroComponent } from './page-user-cadastro/page-user-cadastro.component';
+import { PageUserCadastroComponent } from './page-user-register/page-user-cadastro.component';
 import { PageUserSettingsComponent } from './page-user-settings/page-user-settings.component';
 import { AppComponent } from './app.component';
 const routes: Routes = [

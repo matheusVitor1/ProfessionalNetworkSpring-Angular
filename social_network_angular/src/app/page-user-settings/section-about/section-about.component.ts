@@ -54,7 +54,6 @@ export class SectionAboutComponent implements OnInit{
   openAboutModal(): void {
     const dialogRef = this.dialog.open(AboutModalComponent, {
       width: '50%',
-      height: '75%',
     });
 
     dialogRef.afterClosed().subscribe(result => {

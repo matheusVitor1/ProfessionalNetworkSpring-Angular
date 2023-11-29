@@ -1,21 +1,22 @@
 <div class="container rounded">
-  <div class="row mt-3" data-aos="fade-down">
+  <span class="close-modal-button d-flex align-items-center justify-content-center" (click)="onCloseClick()">
+    <i class="bi bi-x"></i>
+  </span>
+  <div class="row mt-2" data-aos="fade-down">
     <div class="col-md-12 d-flex align-items-center justify-content-center">
       <div class="modal-section-title">
-        <h2>Editar Introdução</h2>
+        <h2>Editar experiência</h2>
       </div>
+
+
     </div>
   </div>
 
-  <div class="row mt-3" data-aos="fade-down">
+  <div class="row mt-2" data-aos="fade-down">
     <div class="col">
       <form class="php-email-form" data-aos-delay="100" style="border-radius: 10px; ">
 
         <div class="container">
-          <span class="close-modal-button d-flex align-items-center justify-content-center" (click)="onCloseClick()">
-            <i class="bi bi-x"></i>
-          </span>
-
           <div class="row">
 
             <div class="col-md-12 mb-3">
@@ -32,18 +33,48 @@
               <div class="validate"></div>
             </div>
 
-            <div class="col-md-6 mb-3">
-              <label>Ano de Início</label>
-              <input type="text" class="form-control" [formControl]="startYear" placeholder="Nome de usuário"
-                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <div class="col-md-5 mb-3">
+              <label>Início</label>
+              <select class="form-control" [formControl]="startYear">
+                <!-- Adicione opções de ano aqui, começando pelo ano atual até 100 anos atrás -->
+                <option *ngFor="let year of yearOptions" [value]="year" class="bi bi-chevron-down">{{ year }}</option>
+              </select>
               <div class="validate"></div>
             </div>
 
-            <div class="col-md-6 mb-3">
-              <label>Ano de Término</label>
-              <input type="text" class="form-control" [formControl]="endYear" placeholder="Nome de usuário"
-                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <div class="col-md-5 mb-3">
+              <label>Término</label>
+              <select class="form-control" [formControl]="endYear" [disabled]="isEndYearDisabled()">
+                <!-- Adicione opções de ano aqui, começando pelo ano atual até 100 anos atrás -->
+                <option *ngFor="let year of yearOptions" [value]="year" class="bi bi-chevron-down">{{ year }}</option>
+
+              </select>
               <div class="validate"></div>
+            </div>
+
+            <div class="col-md-2 d-flex align-items-center justify-content-center">
+              <input type="checkbox" id="atual" [formControl]="isCurrent" (change)="onCheckboxChange()">
+              <label class="ms-2 mt-2" for="atual">Atual</label>
+            </div>
+
+            <div class="col-md-12 mb-3">
+              <label>Descrição</label>
+              <textarea class="form-control" [formControl]="description" name="message" rows="6" required></textarea>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <div class="text-center">
+                <button type="submit" class="mt-3"
+                  style="width: 200px; color: black; background-color: #fff; transition: background-color 0.3s;"
+                  onmouseover="this.style.backgroundColor='#d3e0ea'" onmouseout="this.style.backgroundColor='#fff'"
+                  (click)="deleteChanges()">Excluir Experiência</button>
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-1">
+              <div class="text-center">
+                <button type="submit" class="mt-3" style="width: 150px;" (click)="saveChanges()">Salvar</button>
+              </div>
             </div>
 
           </div>

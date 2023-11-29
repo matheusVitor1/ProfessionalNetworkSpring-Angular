@@ -25,6 +25,7 @@ export class SectionEmploymentRecordComponent implements OnInit{
     this.userService.getUserEmloymentRecord(this.userData.userId).subscribe(
       (response: any) => {
           this.userEmploymentRecord = response;
+
       },
       (error) => {
         console.log(error)
@@ -33,12 +34,24 @@ export class SectionEmploymentRecordComponent implements OnInit{
     );
   }
 
-  openEditRecordModal(id:number, jobPosition:string, company:string, startYear:string, endYear:string, description:String, userId:number): void {
+  openEditRecordModal(id:any, jobPosition:string, company:string, startYear:string, endYear:string, description:String, userId:any): void {
     this.recordResult = {id, jobPosition, company, startYear,endYear,description,userId};
     const dialogRef = this.dialog.open(EditRecordModalComponent, {
       width: '50%',
-      height: '75%',
+
       data: this.recordResult,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Modal fechada', result);
+    });
+  }
+
+  openAddRecordModal(){
+    const dialogRef = this.dialog.open(AddRecordModalComponent, {
+      width: '50%',
+
+      data: this.userData.userId,
     });
 
     dialogRef.afterClosed().subscribe(result => {
