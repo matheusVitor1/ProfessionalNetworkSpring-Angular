@@ -5,7 +5,7 @@
   <div class="row mt-2" data-aos="fade-down">
     <div class="col-md-12 d-flex align-items-center justify-content-center">
       <div class="modal-section-title">
-        <h2>Adicionar experiência</h2>
+        <h2>Adicionar Formação Acadêmica</h2>
       </div>
     </div>
   </div>
@@ -16,16 +16,27 @@
 
         <div class="container">
           <div class="row">
+
             <div class="col-md-12 mb-3">
-              <label>Cargo</label>
-              <input type="text" class="form-control" [formControl]="userJobPosition" placeholder="Ex: Programador"
+              <label>Grau</label>
+              <select class="form-select" [formControl]="userDegree" [disabled]="isEndYearDisabled()">
+                <!-- Adicione opções de ano aqui, começando pelo ano atual até 100 anos atrás -->
+                <option *ngFor="let degree of degreeOptions" [value]="degree" class="bi bi-chevron-down">{{ degree }}</option>
+
+              </select>
+              <div class="validate"></div>
+            </div>
+
+            <div class="col-md-12 mb-3">
+              <label>Área de estudo</label>
+              <input type="text" class="form-control" [formControl]="userCourse" placeholder="Ex: Analise e Desenvolvimento de Sistemas"
                 data-rule="minlen:4" data-msg="Please enter at least 4 chars">
               <div class="validate"></div>
             </div>
 
             <div class="col-md-12 mb-3">
-              <label>Empresa</label>
-              <input type="text" class="form-control" [formControl]="userCompany" placeholder="Ex: Microsoft"
+              <label>Instituição</label>
+              <input type="text" class="form-control" [formControl]="userInstitution" placeholder="Ex: Universidade de São Paulo (USP)"
                 data-rule="minlen:4" data-msg="Please enter at least 4 chars">
               <div class="validate"></div>
             </div>

@@ -10,6 +10,7 @@ import lombok.Setter;
 public class EducationalBackgroundDto {
 
     private Long id;
+    private String course;
     private String degree;
     private String institution;
     private String startYear;

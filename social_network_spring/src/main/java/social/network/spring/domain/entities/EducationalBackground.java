@@ -14,6 +14,8 @@ public class EducationalBackground {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String course;
+
     @Column (nullable = false)
     private String degree;
 
@@ -26,7 +28,7 @@ public class EducationalBackground {
     @Column (nullable = false)
     private String endYear;
 
-    @Column (nullable = false)
+    @Lob
     private String description;
 
     @ManyToOne
@@ -37,7 +39,8 @@ public class EducationalBackground {
 
     }
 
-    public EducationalBackground(String degree, String institution, String startYear, String endYear, String description, User user) {
+    public EducationalBackground(String course, String degree, String institution, String startYear, String endYear, String description, User user) {
+        this.course = course;
         this.degree = degree;
         this.institution = institution;
         this.startYear = startYear;

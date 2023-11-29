@@ -37,7 +37,20 @@ export class UserSettingsService {
     return this.http.delete(url);
   }
 
+  saveUserEducationalBackground(body: any): Observable<any>{
+    const url = 'http://localhost:8080/educationalBackground/new';
+    return this.http.post(url, body);
+  }
 
+  editUserEducationalBackground(body: any): Observable<any>{
+    const url = 'http://localhost:8080/educationalBackground/edit';
+    return this.http.put(url, body);
+  }
+
+  deleteUserEducationalBackground(id: number): Observable<any>{
+    const url = `http://localhost:8080/educationalBackground/remove/${id}`;
+    return this.http.delete(url);
+  }
 
 
 }

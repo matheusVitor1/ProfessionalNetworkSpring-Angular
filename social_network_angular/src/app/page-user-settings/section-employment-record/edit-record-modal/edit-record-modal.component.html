@@ -35,7 +35,7 @@
 
             <div class="col-md-5 mb-3">
               <label>Início</label>
-              <select class="form-control" [formControl]="startYear">
+              <select class="form-select" [formControl]="startYear">
                 <!-- Adicione opções de ano aqui, começando pelo ano atual até 100 anos atrás -->
                 <option *ngFor="let year of yearOptions" [value]="year" class="bi bi-chevron-down">{{ year }}</option>
               </select>
@@ -44,7 +44,7 @@
 
             <div class="col-md-5 mb-3">
               <label>Término</label>
-              <select class="form-control" [formControl]="endYear" [disabled]="isEndYearDisabled()">
+              <select class="form-select" [formControl]="endYear" [disabled]="isEndYearDisabled()">
                 <!-- Adicione opções de ano aqui, começando pelo ano atual até 100 anos atrás -->
                 <option *ngFor="let year of yearOptions" [value]="year" class="bi bi-chevron-down">{{ year }}</option>
 

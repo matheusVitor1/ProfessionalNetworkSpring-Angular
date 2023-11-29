@@ -22,8 +22,8 @@ import { AddRecordModalComponent } from './page-user-settings/section-employment
 import { EditRecordModalComponent } from './page-user-settings/section-employment-record/edit-record-modal/edit-record-modal.component';
 import { FooterComponent } from './footer/footer.component';
 import { SectionEducationalBackgroundComponent } from './page-user-settings/section-educational-background/section-educational-background.component';
-import { EditEdubackgroundModalComponent } from './page-user-settings/edit-edubackground-modal/edit-edubackground-modal.component';
-
+import { EditEducationalBakgroundModalComponent } from './page-user-settings/section-educational-background/edit-educational-bakground-modal/edit-educational-bakground-modal.component';
+import { AddEducationalBakgroundModalComponent } from './page-user-settings/section-educational-background/add-educational-bakground-modal/add-educational-bakground-modal.component';
 
 
 @NgModule({
@@ -43,7 +43,8 @@ import { EditEdubackgroundModalComponent } from './page-user-settings/edit-eduba
     EditRecordModalComponent,
     FooterComponent,
     SectionEducationalBackgroundComponent,
-    EditEdubackgroundModalComponent,
+    EditEducationalBakgroundModalComponent,
+    AddEducationalBakgroundModalComponent,
 
   ],
   imports: [

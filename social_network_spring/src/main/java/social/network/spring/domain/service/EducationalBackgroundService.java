@@ -28,7 +28,9 @@ public class EducationalBackgroundService {
     public EducationalBackgroundDto createRecordDto(EducationalBackground educationalBackground){
         return EducationalBackgroundDto.builder()
                 .id(educationalBackground.getId())
+                .course(educationalBackground.getCourse())
                 .degree(educationalBackground.getDegree())
+                .institution(educationalBackground.getInstitution())
                 .description(educationalBackground.getDescription())
                 .endYear(educationalBackground.getEndYear())
                 .startYear(educationalBackground.getStartYear())
@@ -55,6 +57,7 @@ public class EducationalBackgroundService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "usuário não encontrado");
         }
         EducationalBackground newRecord = new EducationalBackground(
+                educationalBackgroundDto.getCourse(),
                 educationalBackgroundDto.getDegree(),
                 educationalBackgroundDto.getInstitution(),
                 educationalBackgroundDto.getStartYear(),
@@ -76,6 +79,7 @@ public class EducationalBackgroundService {
         EducationalBackground currentRecord = currentRecordOpt.orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Registro Educacional não encontrado com esse ID"));
 
+        currentRecord.setCourse(educationalBackgroundDto.getCourse());
         currentRecord.setDegree(educationalBackgroundDto.getDegree());
         currentRecord.setDescription(educationalBackgroundDto.getDescription());
         currentRecord.setEndYear(educationalBackgroundDto.getEndYear());
