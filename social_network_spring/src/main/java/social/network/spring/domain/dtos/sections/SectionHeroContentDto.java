@@ -6,6 +6,7 @@ import lombok.*;
 @Getter
 @Setter
 public class SectionHeroContentDto {
+    private Long id;
     private String userPhoto;
     private String userNickName;
     private String userWallpaper;

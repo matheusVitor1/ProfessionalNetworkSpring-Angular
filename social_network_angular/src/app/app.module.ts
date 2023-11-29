@@ -24,6 +24,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SectionEducationalBackgroundComponent } from './page-user-settings/section-educational-background/section-educational-background.component';
 import { EditEducationalBakgroundModalComponent } from './page-user-settings/section-educational-background/edit-educational-bakground-modal/edit-educational-bakground-modal.component';
 import { AddEducationalBakgroundModalComponent } from './page-user-settings/section-educational-background/add-educational-bakground-modal/add-educational-bakground-modal.component';
+import { PageNetworkngComponent } from './page-networkng/page-networkng.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { AddEducationalBakgroundModalComponent } from './page-user-settings/sect
     SectionEducationalBackgroundComponent,
     EditEducationalBakgroundModalComponent,
     AddEducationalBakgroundModalComponent,
+    PageNetworkngComponent,
 
   ],
   imports: [

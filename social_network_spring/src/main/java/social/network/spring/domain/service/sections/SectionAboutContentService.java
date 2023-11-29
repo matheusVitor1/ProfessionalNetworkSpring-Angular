@@ -10,6 +10,8 @@ import social.network.spring.domain.service.UserService;
 import social.network.spring.infra.gateway.repositories.sections.SectionAboutContentRepository;
 import social.network.spring.infra.gateway.repositories.UserRepository;
 
+import java.util.List;
+
 
 @Service
 public class SectionAboutContentService {
@@ -37,6 +39,8 @@ public class SectionAboutContentService {
                 .userPhoto(sectionAboutContent.getUser().getPhotoUrl())
                 .build();
     }
+
+
 
     public SectionAboutContent findByUserId(Long userId){
         if (userId == null) {

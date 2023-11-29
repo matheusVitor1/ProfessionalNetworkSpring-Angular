@@ -5,7 +5,7 @@
  <header id="header" data-aos="fade-in">
    <div class="d-flex flex-column">
 
-     <div class="profile text-center" >
+     <div class="profile text-center " >
       <img [src]="userPhoto" alt="" class="img-fluid rounded-circle">
        <h1 class="text-light"><a>{{userName}}</a></h1>
        <p><span>{{userSelfDescription}}</span>
@@ -15,11 +15,11 @@
 
      </div>
 
-     <nav id="navbar" class="nav-menu navbar">
+     <nav id="navbar" class="nav-menu navbar ">
        <ul>
          <li><a href="#" class="nav-link scrollto "><i class="bx bx-home"></i> <span>Home</span></a></li>
-         <li><a href="#" class="nav-link scrollto"><i class="bx bx-user" ></i> <span>Rede</span></a></li>
-         <li><a href="#resume" class="nav-link scrollto active"><i class="bx bx-file-blank "></i> <span>Meu Currículo</span></a></li>
+         <li><a [routerLink]="['/network']" class="nav-link scrollto"><i class="bx bx-user" ></i> <span>Rede</span></a></li>
+         <li><a [routerLink]="['/userSettings']" class="nav-link scrollto "><i class="bx bx-file-blank "></i> <span>Meu Currículo</span></a></li>
 
        </ul>
      </nav><!-- .nav-menu -->

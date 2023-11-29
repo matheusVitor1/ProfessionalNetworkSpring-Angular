@@ -1,0 +1,40 @@
+<!-- ======= users Section ======= -->
+<section id="users" class="users section-bg">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Team</h2>
+      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+        consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in
+        iste officiis commodi quidem hic quas.</p>
+    </div>
+
+    <div class="row " *ngFor="let record of userRecords">
+
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+
+        <div class="member-main">
+          <div class="row">
+            <div [style.background-image]="'url(' + record.userWallpaper + ')'" style="height: 100px; width: 100%;   background-size: cover; background-position: center center;"> </div>
+          </div>
+
+          <div class="row member">
+            <div class="col-md-4 pt-1 pb-1">
+              <div class="pic"><img [src]="record.userPhoto" class="img-fluid" alt=""></div>
+            </div>
+
+            <div class="col-md-8 pt-3">
+              <div class="member-info ps-3">
+                <h4>{{record.userNickName}}</h4>
+                <span>{{record.userSelfDescription}}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End user Section -->

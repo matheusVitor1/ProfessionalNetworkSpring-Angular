@@ -48,6 +48,11 @@ export class UserService {
     return this.http.get(url);
   }
 
+  getAllUsersHero(){
+    const url = `http://localhost:8080/hero/all`;
+    return this.http.get(url);
+  }
+
   getUserAbout(userId: number){
     const url = `http://localhost:8080/about/${userId}`;
     return this.http.get(url);

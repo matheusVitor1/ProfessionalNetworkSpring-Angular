@@ -12,21 +12,47 @@ import social.network.spring.domain.service.UserService;
 import social.network.spring.infra.gateway.repositories.sections.SectionHeroContentRepository;
 import social.network.spring.infra.gateway.repositories.UserRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class SectionHeroContentService {
     private final SectionHeroContentRepository sectionHeroContentRepository;
     private final UserService userService;
 
-    private final UserRepository userRepository;
 
-    public SectionHeroContentService(SectionHeroContentRepository sectionHeroContentRepository, UserService userService, UserRepository userRepository) {
+
+    public SectionHeroContentService(SectionHeroContentRepository sectionHeroContentRepository, UserService userService) {
         this.sectionHeroContentRepository = sectionHeroContentRepository;
         this.userService = userService;
-        this.userRepository = userRepository;
     }
+
+    public List<SectionHeroContentDto> getAll(){
+        return createHeroAsListDto(sectionHeroContentRepository.findAll());
+    }
+
+    public List<SectionHeroContentDto> createHeroAsListDto(List<SectionHeroContent> sectionHeroContents) {
+
+        if(sectionHeroContents == null){
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        }
+
+        return sectionHeroContents.stream()
+                .map(sectionHeroContent -> SectionHeroContentDto.builder()
+                        .id(sectionHeroContent.getId())
+                        .userSelfDescription(sectionHeroContent.getUserSelfDescription())
+                        .userId(sectionHeroContent.getUser().getId())
+                        .userWallpaper(sectionHeroContent.getUserWallpaper())
+                        .userNickName(sectionHeroContent.getUser().getName())
+                        .userPhoto(sectionHeroContent.getUser().getPhotoUrl())
+                        .build())
+                .collect(Collectors.toList());
+    }
+
 
     public SectionHeroContentDto createHeroDto (SectionHeroContent sectionHeroContent){
         return SectionHeroContentDto.builder()
+                .id(sectionHeroContent.getId())
                 .userSelfDescription(sectionHeroContent.getUserSelfDescription())
                 .userId(sectionHeroContent.getUser().getId())
                 .userWallpaper(sectionHeroContent.getUserWallpaper())

@@ -20,7 +20,6 @@ export class AboutModalComponent implements OnInit {
   userPhone = new FormControl();
   userBirthday = new FormControl();
 
-
   cepControl = new FormControl();
   ruaControl = new FormControl();
   bairroControl = new FormControl();
