@@ -25,6 +25,12 @@ import { SectionEducationalBackgroundComponent } from './page-user-settings/sect
 import { EditEducationalBakgroundModalComponent } from './page-user-settings/section-educational-background/edit-educational-bakground-modal/edit-educational-bakground-modal.component';
 import { AddEducationalBakgroundModalComponent } from './page-user-settings/section-educational-background/add-educational-bakground-modal/add-educational-bakground-modal.component';
 import { PageNetworkngComponent } from './page-networkng/page-networkng.component';
+import { TruncatePipePipe } from './page-networkng/truncate-pipe.pipe';
+import { PageUserProfileComponent } from './page-user-profile/page-user-profile.component';
+import { SectionAboutProfileComponent } from './page-user-profile/section-about-profile/section-about-profile.component';
+import { SectionEmploynentRecordProfileComponent } from './page-user-profile/section-employnent-record-profile/section-employnent-record-profile.component';
+import { SectionHeroProfileComponent } from './page-user-profile/section-hero-profile/section-hero-profile.component';
+import { SectionEducationalBackgroundProfileComponent } from './page-user-profile/section-educational-background-profile/section-educational-background-profile.component';
 
 
 @NgModule({
@@ -47,6 +53,12 @@ import { PageNetworkngComponent } from './page-networkng/page-networkng.componen
     EditEducationalBakgroundModalComponent,
     AddEducationalBakgroundModalComponent,
     PageNetworkngComponent,
+    TruncatePipePipe,
+    PageUserProfileComponent,
+    SectionAboutProfileComponent,
+    SectionEmploynentRecordProfileComponent,
+    SectionHeroProfileComponent,
+    SectionEducationalBackgroundProfileComponent,
 
   ],
   imports: [

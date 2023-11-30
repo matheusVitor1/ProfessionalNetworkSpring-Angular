@@ -3,38 +3,50 @@
   <div class="container" data-aos="fade-up">
 
     <div class="section-title">
-      <h2>Team</h2>
-      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-        consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in
-        iste officiis commodi quidem hic quas.</p>
+      <h2 style="color: #fff;">Rede</h2>
     </div>
 
-    <div class="row " *ngFor="let record of userRecords">
+    <div class="row">
 
-      <div class="col-md-5" data-aos="zoom-in" data-aos-delay="100">
+      <div class="col-md-6 mt-3 " data-aos="zoom-in" data-aos-delay="100" *ngFor="let record of userRecords">
 
         <div class="container member-main">
           <div class="row">
-            <div class="col-md-12" [style.background-image]="'url(' + record.userWallpaper + ')'" style="height: 100px; width: 100%;   background-size: cover; background-position: center center;"> </div>
+            <div class="col-md-12" [style.background-image]="'url(' + record.userWallpaper + ')'"
+              style="height: 100px; width: 100%;   background-size: cover; background-position: center center;"> </div>
           </div>
 
           <div class="row member">
             <div class="col-md-4 d-flex align-items-center justify-content-center pt-1 pb-1">
               <div class="pic"><img [src]="record.userPhoto" class="img-fluid" alt=""></div>
             </div>
-
             <div class="col-md-8 pt-3">
               <div class="member-info ps-3">
                 <h4>{{record.userNickName}}</h4>
-                <span>{{record.userSelfDescription}}</span>
+                <span>{{ record.userSelfDescription}}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+            <div class="col portfolio-item filter-app">
+              <div class="portfolio-info">
+                <div class="row">
+                  <div class="col-md-7 d-flex align-items-center ">
+                    <h4>{{record.userNickName}}</h4>
+                  </div>
+                  <div class="col-md-5">
+                    <button type="submit" class="ms-5 " (click)="navigateToNetworkPage(record.userId)"> Ver Perfil</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
         </div>
       </div>
-
     </div>
-
   </div>
 </section><!-- End user Section -->
+
+

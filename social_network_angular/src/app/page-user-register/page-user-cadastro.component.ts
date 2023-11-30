@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { UserSettingsService } from '../page-user-settings/services/user-settings.service';
 
 
 @Component({
@@ -34,7 +35,7 @@ export class PageUserCadastroComponent {
     }
   }
 
-  constructor (private userService: UserService, private router: Router, private http: HttpClient){}
+  constructor (private userService: UserService, private router: Router, private http: HttpClient, private userSettings: UserSettingsService){}
 
   registerUser(){
     const requestBody = {
@@ -48,6 +49,7 @@ export class PageUserCadastroComponent {
     }
     this.userService.addUser(requestBody).subscribe(
     (response) => {
+      this.saverUserHero();
       this.router.navigate(['/login']);
       alert("Usuário Cadastrado com Sucesso!")
     },
@@ -61,6 +63,18 @@ export class PageUserCadastroComponent {
         console.error('Erro desconhecido: ', error);
       }
     });
+  }
+
+  saverUserHero(){
+    const body = {
+      userNickName: this.userNameControl.value,
+      userPhoto: this.photoUrlControl.value,
+    }
+    this.userSettings.saveUserHero(body).subscribe(
+      (reponse) =>{
+
+      }
+    );
   }
 
 

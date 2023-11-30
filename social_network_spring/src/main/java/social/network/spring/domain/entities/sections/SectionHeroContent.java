@@ -19,7 +19,6 @@ public class SectionHeroContent {
 
     private String userSelfDescription;
 
-
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;

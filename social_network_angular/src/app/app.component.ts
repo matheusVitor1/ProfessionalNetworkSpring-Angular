@@ -28,23 +28,4 @@ export class AppComponent implements OnInit {
     });
   }
 
-  @HostListener('window:beforeunload', ['$event'])
-  beforeUnloadHandler(event: any) {
-
-    if (event instanceof Event) {
-
-      if (!this.isPageReloading()) {
-
-        this.userService.logoutUser();
-      }
-    }
-  }
-
-  private isPageReloading(): boolean {
-
-    return performance && performance.navigation && performance.navigation.type === 1;
-  }
-
-
-
 }

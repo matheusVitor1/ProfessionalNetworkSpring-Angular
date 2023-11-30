@@ -1,0 +1,28 @@
+<!-- ======= Resume Section ======= -->
+<section id="resume " class="resume ">
+  <div class="container position-relative rounded shadow-sm"  data-aos="fade-up">
+
+    <div class="section-title mt-3">
+      <h2>Experiência</h2>
+    </div>
+
+    <div class="row " *ngFor="let record of userEmploymentRecord" data-aos="fade-in">
+      <div class="col-md-10 "  data-aos-delay="100">
+        <div class="row mt-3 resume-item" >
+          <h3>{{record.jobPosition}}</h3>
+          <h4>{{record.company}}</h4>
+          <h5>  {{record.startYear}} - {{record.endYear}} </h5>
+
+          <p style="white-space: pre-line;">
+              {{record.description}}
+          </p>
+        </div>
+
+        <div class="col">
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Resume Section -->

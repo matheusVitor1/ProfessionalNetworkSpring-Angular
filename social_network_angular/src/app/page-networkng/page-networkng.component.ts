@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page-networkng',
@@ -8,17 +10,11 @@ import { UserService } from '../services/user.service';
 })
 export class PageNetworkngComponent implements OnInit{
 
-  constructor(private userService: UserService){}
-
-  private userData: any;
+  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute){}
   userRecords:any [] = [];
   recordResult = {};
 
   ngOnInit(){
-    const userState = this.userService.localStorageGetUserInfo();
-    if (userState) {
-      this.userData = userState;
-    }
 
     this.userService.getAllUsersHero().subscribe(
       (response: any) => {
@@ -31,6 +27,11 @@ export class PageNetworkngComponent implements OnInit{
 
     );
   }
+
+  navigateToNetworkPage(data: any): void {
+    this.router.navigate(['/userProfile'], { queryParams: { userId: data } });
+  }
+
 
 
 }

@@ -112,6 +112,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
+
+
+
+
+
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
@@ -201,8 +206,10 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         portfolioFilters.forEach(function(el) {
           el.classList.remove('filter-active');
+
         });
         this.classList.add('filter-active');
+
 
         portfolioIsotope.arrange({
           filter: this.getAttribute('data-filter')
