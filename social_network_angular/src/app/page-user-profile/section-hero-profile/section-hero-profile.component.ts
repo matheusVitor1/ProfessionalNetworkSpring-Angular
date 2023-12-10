@@ -9,7 +9,8 @@ import { UserService } from 'src/app/services/user.service';
 export class SectionHeroProfileComponent  implements OnInit{
 
   @Input() userId: number;
-  userWallpaper: any;
+  userWallpaper: any = 'https://images2.alphacoders.com/838/thumbbig-838697.webp';
+
 
   constructor (private userService: UserService){}
 
@@ -17,7 +18,8 @@ export class SectionHeroProfileComponent  implements OnInit{
 
     this.userService.getUserHero(this.userId).subscribe(
       (response: any) => {
-        this.userWallpaper = response?.userWallpaper;
+
+        this.userWallpaper = response?.userWallpaper || this.userWallpaper;
       },
       (error) => {
         console.error('Erro ao buscar informações do usuário:', error);

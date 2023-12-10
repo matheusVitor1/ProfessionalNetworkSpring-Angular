@@ -49,7 +49,31 @@ export class PageUserCadastroComponent {
     }
     this.userService.addUser(requestBody).subscribe(
     (response) => {
-      this.saverUserHero();
+      const aboutBody = {
+        userEmail:this.emailControl.value,
+        userBirthday: this.identityControl.value,
+        userId: response.id,
+      };
+
+      const heroBody = {
+        userNickName: this.userNameControl.value,
+        userPhoto: this.photoUrlControl.value,
+        userId: response.id,
+      };
+
+      this.userSettings.saveUserAbout(aboutBody).subscribe(
+        (responseAbout) => {
+
+        }
+      );
+
+      this.userSettings.saveUserHero(heroBody).subscribe(
+        (responseHero) => {
+
+        }
+      );
+
+      
       this.router.navigate(['/login']);
       alert("Usuário Cadastrado com Sucesso!")
     },

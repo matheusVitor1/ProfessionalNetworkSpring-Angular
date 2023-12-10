@@ -14,11 +14,14 @@ export class PageNetworkngComponent implements OnInit{
   userRecords:any [] = [];
   recordResult = {};
 
+  userWallpaper: any = 'https://images2.alphacoders.com/838/thumbbig-838697.webp';
+
   ngOnInit(){
 
     this.userService.getAllUsersHero().subscribe(
       (response: any) => {
           this.userRecords = response;
+       
 
       },
       (error) => {

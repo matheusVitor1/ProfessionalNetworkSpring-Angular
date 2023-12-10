@@ -17,9 +17,14 @@
 
      <nav id="navbar" class="nav-menu navbar ">
        <ul>
-         <li><a href="#" class="nav-link scrollto "><i class="bx bx-home"></i> <span>Home</span></a></li>
-         <li><a [routerLink]="['/network']" class="nav-link scrollto"><i class="bx bx-user" ></i> <span>Rede</span></a></li>
-         <li><a [routerLink]="['/userSettings']" class="nav-link scrollto "><i class="bx bx-file-blank "></i> <span>Meu Currículo</span></a></li>
+
+         <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/network']" class="nav-link scrollto">
+            <i class="bx bx-user"></i> <span>Rede</span>
+          </a>
+        </li>
+        
+         <li><a [routerLinkActive]="['active']" [routerLink]="['/userSettings']" class="nav-link scrollto "><i class="bx bx-file-blank "></i> <span>Meu Currículo</span></a></li>
 
        </ul>
      </nav><!-- .nav-menu -->

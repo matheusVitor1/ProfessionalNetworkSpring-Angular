@@ -8,12 +8,14 @@
 
     <div class="row">
 
-      <div class="col-md-6 mt-3 " data-aos="zoom-in" data-aos-delay="100" *ngFor="let record of userRecords">
+      <div class="col-md-6 mt-3 mb-3 " data-aos="zoom-in" data-aos-delay="100" *ngFor="let record of userRecords">
 
         <div class="container member-main">
           <div class="row">
-            <div class="col-md-12" [style.background-image]="'url(' + record.userWallpaper + ')'"
-              style="height: 100px; width: 100%;   background-size: cover; background-position: center center;"> </div>
+            <div class="col-md-12"
+              [style.background-image]="'url(' + (record.userWallpaper ? record.userWallpaper : 'https://images2.alphacoders.com/838/thumbbig-838697.webp') + ')'"
+              style="height: 100px; width: 100%; background-size: cover; background-position: center center;">
+            </div>
           </div>
 
           <div class="row member">
@@ -36,7 +38,8 @@
                     <h4>{{record.userNickName}}</h4>
                   </div>
                   <div class="col-md-5">
-                    <button type="submit" class="ms-5 " (click)="navigateToNetworkPage(record.userId)"> Ver Perfil</button>
+                    <button type="submit" class="ms-5 " (click)="navigateToNetworkPage(record.userId)"> Ver
+                      Perfil</button>
                   </div>
                 </div>
               </div>
@@ -49,4 +52,4 @@
   </div>
 </section><!-- End user Section -->
 
-
+<app-footer></app-footer>

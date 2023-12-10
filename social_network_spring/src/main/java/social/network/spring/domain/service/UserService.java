@@ -59,7 +59,7 @@ public class UserService {
         return users.stream().anyMatch(user -> user.getEmail().equals(email));
     }
 
-    public boolean saveUser(UserDto userDto) {
+    public UserAuthDto saveUser(UserDto userDto) {
         List<User> users = getALL();
         String hashedPassword = passwordEncoder.encode(userDto.getPassword());
 
@@ -77,7 +77,7 @@ public class UserService {
                     userDto.isActive()
             );
             userRepository.save(user);
-            return true;
+            return createAuthenticatedUserDto(user);
         } else {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Usuário já cadastrado");
         }
